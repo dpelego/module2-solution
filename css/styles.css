@@ -1,0 +1,160 @@
+
+/* Base styles - Styles below apply regardless of the width */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.chicken-section .section-title {
+    background-color: #ff9999;
+    color: black;
+}
+.beef-section .section-title {
+    background-color: #cc4444;
+    color: white;
+}
+
+.sushi-section .section-title {
+    background-color: #ddaa44;
+    color: black;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 30px;
+}
+    
+.menu-section {
+	border: 1px solid black;
+	position: relative;
+    width: 32%;
+	margin-right: 2%;
+    height: 200px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    float: left;
+    background-color: #c7c3c3;
+}
+.menu-section:last-child {
+    margin-right: 0;
+}
+.menu-section:hover{
+	overflow-y:auto;
+	cursor: ns-resize
+}
+
+.section-title{
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px 15px;
+	font-weight: bold;
+	font-size: 125%;
+}
+
+.section-content{
+	padding: 15px;
+	/* Let's put extra padding to not have the title overlap */
+	padding-top: 50px;
+	line-height: 1.4;
+	overflow-y: hidden;
+}
+
+body {
+    font-family: Calibri, sans-serif;
+    background-color: #f5f5f5;
+    /*padding: 15px;*/
+}
+
+/* The default behavior is to hide Categories and show Our Menu (and vice versa for Mobile, handled below) */
+/* Also show the full titles (with 10+ words) only on mobile */ 
+.categories, .full-title{
+	display: none;
+}
+.menu {
+	text-align: center;
+	margin-bottom: 20px;
+	display: block;
+	font-weight: bold;
+	font-size: 175%;
+}
+.short-title{
+	display: block;
+}
+
+
+/* Desktop view - 992px and above */
+@media (min-width: 992px) {
+    .menu {
+    	margin-top: 20px;
+    	margin-bottom: 30px;
+    }
+}
+
+/* Tablet view - 768px to 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+	.menu-section:nth-child(1),
+	.menu-section:nth-child(2) {
+	    width: 48%;
+	    margin-right: 4%;
+	}
+
+	.menu-section:nth-child(2) {
+	    margin-right: 0;
+	}
+
+	.menu-section:nth-child(3) {
+	    width: 100%;
+	    margin-top: 15px;
+	    clear: both;
+	}
+}
+
+/* Mobile view - 767px and below */
+@media (max-width: 767px) {
+
+	.container{
+		padding: 0 30px;
+	}
+	.menu-section{
+    	width: 100.00%;
+    	margin-bottom: 15px;
+	}
+	.menu-section:last-child{
+		margin-bottom:0;
+	}
+
+	/* Now we want to show categories + full title and hide menu + short title*/
+	.categories{
+		display: block;
+		text-align: left;
+		margin-bottom: 15px;
+		margin-top: 15px;
+		font-size: 115%;
+		font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+	}
+	.menu, .short-title {
+		display: none;
+	}
+
+	.full-title{
+		display: block;
+		width: 100%;
+		position: static;
+		top: auto;
+		text-align: center;
+		border-left: none;
+		border-bottom: 1px solid black;
+		font-size: 100%;
+	}
+
+	.section-content{
+		padding: 15px;
+		padding-top: 15px;
+	}
+
+}
